@@ -81,7 +81,7 @@ nav li {
     margin-bottom: 0;
 }
 
-.nav-link[active="True"]{
+.active, .nav-link:hover{
     background-color: #00274c;
     color:  #e7e7e7;
 }
