@@ -33,6 +33,19 @@ p {
     margin-right: 0;
 }
 
+button {
+    display: block;
+    text-align: center;
+    margin: 1em;
+    width: 90%;
+    border: 0;
+    color: #e7e7e7;
+    border-radius: 4px;
+    background-color: #2f65a7;
+    padding: 0.5rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
 header img{
     width: 100%;
     height: auto;
@@ -153,6 +166,9 @@ h3 {
     border-radius: 4px;
     background-color: #2f65a7;
     padding: 0.3rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width: 95%;
+    margin: 0 auto;
 }
 
 .tabular button:hover, button:focus{
