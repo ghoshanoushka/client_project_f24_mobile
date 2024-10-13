@@ -130,15 +130,15 @@ h3 {
 }
 
 .section {
-    margin-bottom: 2em;
+    padding-bottom: 1px;
 }
 
 .tabular {
     display: grid;
     justify-content: space-between;
-    grid-template-columns: 48% 50%;
+    grid-template-columns: 49% 49%;
     grid-gap: 2%;
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
 }
 
 .tabular h3{
