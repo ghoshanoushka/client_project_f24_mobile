@@ -145,29 +145,29 @@ h3 {
 .tabular h3{
     margin-top: 0.5em;
     margin-bottom: 0;
-    grid-row: 1;
+    grid-row: 1/span 1;
 }
 
 .tabular p{
     margin-top: 0;
     margin-bottom: 0.5em;
-    grid-row: 2;
+    grid-row: 2/span 1;
 }
 
 .tabular img{
     width: 100%;
     object-fit: cover;
-    grid-row: 3;
+    grid-row: 3/span 1;
 }
 
 .tabular button{
-    grid-row: 4;
+    grid-row: 4/span 1;
     border: 0;
     color: #e7e7e7;
     border-radius: 4px;
     background-color: #2f65a7;
     padding: 0.3rem;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 5px 10px 0 rgba(91, 91, 91, 0.2), 0 5px 10px 0 rgba(91, 91, 91, 0.2);
     width: 95%;
     margin: 0 auto;
 }
@@ -200,7 +200,7 @@ h3 {
 }
 
 .footer-img {
-    grid-column: 1;
+    grid-column: 1/span 1;
     width: 100%;
     height: auto;
     max-width: 8em;
