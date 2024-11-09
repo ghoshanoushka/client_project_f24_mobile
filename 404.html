@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <link rel="stylesheet" href="html5reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-division">
+        <header>
+            <img src="images/umsilogo.png" alt="UMSI Logo" class="responsive-img">
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href='index.html'>Home</a></li>
+                <li><a href='studentsupportservices.html'>Student Support Services</a></li>
+                <li><a href='academicadvising.html'>Academic Advising</a></li>
+                <li><a href='resourcesite.html'>Resources</a></li>
+                <li><a href='contact.html'>Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h1 class="heading-h1">Oops... Page Not Found</h1>
+            <div class="image-container">
+                <img src="images/404notfound.png" alt="404 Error" class="small-img">
+            <p>Oops! The page you're looking for doesn't exist.</p></div>
+            <button onclick="document.location='index.html'">Return to Home</button>
+            <hr>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <img src="gifs/m.gif" alt="M Flag" class="footer-img">
+                <div class="footer-content-item">
+                    <p>MSI Academic Advising</a> | <a href="mailto:umsi.advising.msi@umich.edu">umsi.advising.msi@umich.edu</a></p>
+                    <p>&copy; <span id="year"></span> Anoushka Ghosh</p>
+                </div>
+            </div>
+        </footer>
+        <script>
+            document.getElementById("year").innerHTML = new Date().getFullYear();
+        </script>
+    </div>
+</body>
+
+</html>

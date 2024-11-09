@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="html5reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-division">
+        <header>
+            <a href = "#main" class="skip-link">Skip to Main Content</a>
+            <img src="images/umsilogo.png" alt="UMSI Logo">
+        </header>
+
+        <nav>
+            <ul>
+                <li><a class="nav-link" href='index.html'>Home</a></li>
+                <li><a class="nav-link" href='studentsupportservices.html'>Student Support Services</a></li>
+                <li><a class="nav-link" href='academicadvising.html'>Academic Advising</a></li>
+                <li><a class="nav-link" href='resourcesite.html'>Resources</a></li>
+                <li><a class="nav-link active" href='contact.html'>Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <main id="main">
+            <h1 class="heading-h1">We're Here to Help!</h1>
+
+            <section class="form-section">
+                <form action="https://formspree.io/f/xpwzpdon" method="POST">
+                    <fieldset>
+                        <legend>We're here to support you every step of the way, whether you need help with course planning, navigating program requirements, or exploring career paths. Your goals and success are important to us, and we're committed to helping you make the most of your time here. Don't hesitate to reach out - we're here to help you thrive at UMSI!</legend><p>
+                        <p>Fill out the form below to let us know how we can support you.</p>
+                        <div class="form-wrapper">
+                            <form id="multiPageForm">
+                                <!-- Page 1 -->
+                                <div class="form-page active" id="page1">
+                                    <h2>Personal Information</h2>
+                                    <label for="firstname">First Name:</label>
+                                    <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+
+                                    <label for="lastname">Last Name:</label>
+                                    <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+
+                                    <label for="umid">UMID:</label>
+                                    <input type="text" id="umid" name="umid" placeholder="Enter UMID" required>
+
+                                    <label for="email">Email Address:</label>
+                                    <input type="email" id="email" name="email" placeholder="example@umich.edu" required>
+
+                                    <button type="button" class="next-button" onclick="nextPage()">Next</button>
+                                </div>
+
+                                <!-- Page 2 -->
+                                <div class="form-page" id="page2">
+                                    <h2>Message</h2>
+                                    <label for="message">Briefly describe what you want to discuss:</label>
+                                    <textarea id="message" name="message" rows="4" placeholder="Type your message here" required></textarea>
+
+                                    <button type="button" class="back-button" onclick="prevPage()">Back</button>
+                                    <button type="button" class="next-button" onclick="nextPage()">Next</button>
+                                </div>
+
+                                <!-- Page 3 -->
+                                <div class="form-page" id="page3">
+                                    <h2>Availability</h2>
+                                    <label for="availability">Choose your available date:</label>
+                                    <input type="date" id="availability" name="availability" required>
+
+                                    <button type="button" class="back-button" onclick="prevPage()">Back</button>
+                                    <button type="submit" class="submit-button">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        </p>
+                        <script>
+                            let currentPage = 0;
+
+                            function showPage(pageIndex) {
+                                const pages = document.querySelectorAll('.form-page');
+                                pages.forEach((page, index) => {
+                                    page.classList.toggle('active', index === pageIndex);
+                                });
+                            }
+
+                            function nextPage() {
+                                const pages = document.querySelectorAll('.form-page');
+                                if (currentPage < pages.length - 1) {
+                                    currentPage++;
+                                    showPage(currentPage);
+                                }
+                            }
+
+                            // Move to the previous page
+                            function prevPage() {
+                                if (currentPage > 0) {
+                                    currentPage--;
+                                    showPage(currentPage);
+                                }
+                            }
+
+                            showPage(currentPage);
+
+                            document.getElementById("multiPageForm").addEventListener("submit", function(event) {
+                                alert("Form submitted!");
+                                event.preventDefault();
+                            });
+                        </script>
+
+                    </fieldset>
+                </form>
+            </section>
+
+        </main>
+        <footer>
+            <hr>
+            <div class="footer-content">
+                <img src="gifs/m.gif" alt="M Flag" class="footer-img">
+                <div class="footer-content-item">
+                    <p>MSI Academic Advising</a> | <a href="mailto:umsi.advising.msi@umich.edu">umsi.advising.msi@umich.edu</a></p>
+                    <p>&copy; <span id="year"></span> Anoushka Ghosh</p>
+                </div>
+            </div>
+        </footer>
+        <script>
+            document.getElementById("year").innerHTML = new Date().getFullYear();
+        </script>
+
+    </div>
+</body>
+
+</html>

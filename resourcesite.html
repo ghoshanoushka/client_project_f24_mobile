@@ -22,7 +22,7 @@
                 <li><a class="nav-link" href='studentsupportservices.html'>Student Support Services</a></li>
                 <li><a class="nav-link" href='academicadvising.html'>Academic Advising</a></li>
                 <li><a class="nav-link active" href='resourcesite.html'>Resources</a></li>
-                <li><a class="nav-link" href='https://www.si.umich.edu/about-umsi/contact-us'>Contact Us</a></li>
+                <li><a class="nav-link" href='contact.html'>Contact Us</a></li>
             </ul>
         </nav>
 
@@ -30,11 +30,11 @@
             <h1 class="heading-h1">MSI Academic Advising Resource Site</h1>
 
             <img src="images/resourcesite.jpg" alt="Resource Site" class="responsive-img">
-            
+
             <section>
                 <h2 class="heading-h2" style="background-color: inherit; text-align: left;">Academic Advising Resource Site Overview:</h2>
                 <p>Welcome! This site contains information about academic advising, academic planning, and student support resources for students in the Master of Science in Information (MSI) Program.</p>
-                
+
                 <h2 class="heading-h2">Content Areas</h2>
                 <button
                     onclick="window.location.href = 'https\://sites.google.com/umich.edu/msiacademicadvising/fall-2024-important-dates?authuser=0';"
@@ -61,18 +61,117 @@
                     onclick="window.location.href = 'https\://sites.google.com/umich.edu/msiacademicadvising/help-who-do-i-contact?authuser=0';"
                     >Help! Who Do I Contact?</button>
             </section>
-            <hr>
-        </main>
+            <button class="floating-button" onclick="toggleForm()"><img src="images/contacticon.png" alt="Contact Us" class="button-icon"></button>
 
+            <!-- Modal Form Container -->
+            <div id="formModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-button" onclick="toggleForm()">&times;</span>
+
+                    <!-- Multi-Page Form Starts Here -->
+                    <form id="multiPageForm">
+                        <!-- Page 1 -->
+                        <div class="form-page active" id="page1">
+                            <h2>Personal Information</h2>
+                            <label for="firstname">First Name:</label>
+                            <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+
+                            <label for="lastname">Last Name:</label>
+                            <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+
+                            <label for="umid">UMID:</label>
+                            <input type="text" id="umid" name="umid" placeholder="Enter UMID" required>
+
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" name="email" placeholder="example@umich.edu" required>
+
+                            <button type="button" class="next-button" onclick="nextPage()">Next</button>
+                        </div>
+
+                        <!-- Page 2 -->
+                        <div class="form-page" id="page2">
+                            <h2>Message</h2>
+                            <label for="message">Briefly describe what you want to discuss:</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Type your message here" required></textarea>
+
+                            <button type="button" class="back-button" onclick="prevPage()">Back</button>
+                            <button type="button" class="next-button" onclick="nextPage()">Next</button>
+                        </div>
+
+                        <!-- Page 3 -->
+                        <div class="form-page" id="page3">
+                            <h2>Availability</h2>
+                            <label for="availability">Choose your available date:</label>
+                            <input type="date" id="availability" name="availability" required>
+
+                            <button type="button" class="back-button" onclick="prevPage()">Back</button>
+                            <button type="submit" class="submit-button">Submit</button>
+                        </div>
+                    </form>
+            </div>
+        </main>
+        <hr>
         <footer>
             <div class="footer-content">
                 <img src="gifs/m.gif" alt="Go Blue" class="footer-img">
                 <div class="footer-content-item">
                     <p>MSI Academic Advising</a> | <a href="mailto:umsi.advising.msi@umich.edu">umsi.advising.msi@umich.edu</a></p>
-                    <p>&copy; Copyright 2024<br>Anoushka Ghosh</p>
+                    <p>&copy; <span id="year"></span> Anoushka Ghosh</p>
                 </div>
             </div>
         </footer>
+        <script>
+            document.getElementById("year").innerHTML = new Date().getFullYear();
+            // Function to toggle the modal display
+            function toggleForm() {
+                const modal = document.getElementById("formModal");
+                modal.style.display = modal.style.display === "block" ? "none" : "block";
+            }
+
+            // Close the modal if clicking outside the form content
+            window.addEventListener("click", function(event) {
+                const modal = document.getElementById("formModal");
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+
+            // Multi-page form navigation
+            let currentPage = 0;
+
+            function showPage(pageIndex) {
+                const pages = document.querySelectorAll('.form-page');
+                pages.forEach((page, index) => {
+                    page.classList.toggle('active', index === pageIndex);
+                });
+            }
+
+            // Move to the next page
+            function nextPage() {
+                const pages = document.querySelectorAll('.form-page');
+                if (currentPage < pages.length - 1) {
+                    currentPage++;
+                    showPage(currentPage);
+                }
+            }
+
+            // Move to the previous page
+            function prevPage() {
+                if (currentPage > 0) {
+                    currentPage--;
+                    showPage(currentPage);
+                }
+            }
+
+            // Initialize the form with the first page
+            showPage(currentPage);
+
+            // Form submission logic
+            document.getElementById("multiPageForm").addEventListener("submit", function(event) {
+                alert("Form submitted!");
+                event.preventDefault(); // Prevent actual submission for demo purposes
+            });
+        </script>
     </div>
 </body>
 
