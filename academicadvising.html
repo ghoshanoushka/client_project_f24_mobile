@@ -128,13 +128,13 @@
         </footer>
         <script>
             document.getElementById("year").innerHTML = new Date().getFullYear();
-            // Function to toggle the modal display
+
             function toggleForm() {
                 const modal = document.getElementById("formModal");
                 modal.style.display = modal.style.display === "block" ? "none" : "block";
             }
 
-            // Close the modal if clicking outside the form content
+
             window.addEventListener("click", function(event) {
                 const modal = document.getElementById("formModal");
                 if (event.target === modal) {
@@ -142,7 +142,7 @@
                 }
             });
 
-            // Multi-page form navigation
+
             let currentPage = 0;
 
             function showPage(pageIndex) {
@@ -152,7 +152,7 @@
                 });
             }
 
-            // Move to the next page
+
             function nextPage() {
                 const pages = document.querySelectorAll('.form-page');
                 if (currentPage < pages.length - 1) {
@@ -161,7 +161,7 @@
                 }
             }
 
-            // Move to the previous page
+
             function prevPage() {
                 if (currentPage > 0) {
                     currentPage--;
@@ -169,14 +169,23 @@
                 }
             }
 
-            // Initialize the form with the first page
+
             showPage(currentPage);
 
-            // Form submission logic
+
             document.getElementById("multiPageForm").addEventListener("submit", function(event) {
                 alert("Form submitted!");
-                event.preventDefault(); // Prevent actual submission for demo purposes
+                event.preventDefault();
             });
+            window.addEventListener('error', function(event) {
+
+            if (event.target.tagName === 'A' && event.target.href) {
+
+            event.preventDefault();
+
+            window.location.href = '404.html';
+            }
+            }, true);
         </script>
 
     </div>

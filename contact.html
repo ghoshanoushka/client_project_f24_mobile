@@ -129,83 +129,13 @@
                             </form>
                         </div>
                         </p>
-                        <script>
-                             let currentPage = 0;
-
-
-                            function showPage(pageIndex) {
-                                const pages = document.querySelectorAll('.form-page');
-
-                                pages.forEach((page, index) => {
-
-                                    page.classList.remove('active', 'inactive');
-
-
-                                    if (index === pageIndex) {
-                                        page.classList.add('active');
-                                    } else if (index < pageIndex || index > pageIndex) {
-                                        page.classList.add('inactive');
-                                    }
-                                });
-                            }
-
-
-                            function nextPage() {
-                                if (validateCurrentPage()) {
-                                    currentPage++;
-                                    showPage(currentPage);
-                                }
-                            }
-
-
-                            function prevPage() {
-                                if (currentPage > 0) {
-                                    currentPage--;
-                                    showPage(currentPage);
-                                }
-                            }
-
-
-                            function validateCurrentPage() {
-                                const currentInputs = document.querySelectorAll('.form-page.active input[required], .form-page.active textarea[required]');
-                                let valid = true;
-
-                                currentInputs.forEach(input => {
-
-                                    if (input.value.trim() === '') {
-                                        input.classList.add('input-error');
-                                        valid = false;
-
-
-                                        setTimeout(() => input.classList.remove('input-error'), 300);
-                                    }
-                                });
-
-                                return valid;
-                            }
-
-                            document.getElementById("multiPageForm").addEventListener("submit", function(event) {
-                                if (!validateCurrentPage()) {
-                                    event.preventDefault();
-                                    fails
-                                    alert("Please fill in all required fields.");
-                                } else {
-                                    alert("Form submitted!");
-                                }
-                            });
-
-
-                            showPage(currentPage);
-
-                        </script>
-
                     </fieldset>
                 </form>
             </section>
 
         </main>
+        <hr>
         <footer>
-            <hr>
             <div class="footer-content">
                 <img src="gifs/m.gif" alt="M Flag" class="footer-img">
                 <div class="footer-content-item">
@@ -216,7 +146,85 @@
         </footer>
         <script>
             document.getElementById("year").innerHTML = new Date().getFullYear();
+
+             let currentPage = 0;
+
+
+            function showPage(pageIndex) {
+                const pages = document.querySelectorAll('.form-page');
+
+                pages.forEach((page, index) => {
+
+                    page.classList.remove('active', 'inactive');
+
+
+                    if (index === pageIndex) {
+                        page.classList.add('active');
+                    } else if (index < pageIndex || index > pageIndex) {
+                        page.classList.add('inactive');
+                    }
+                });
+            }
+
+
+            function nextPage() {
+                if (validateCurrentPage()) {
+                    currentPage++;
+                    showPage(currentPage);
+                }
+            }
+
+
+            function prevPage() {
+                if (currentPage > 0) {
+                    currentPage--;
+                    showPage(currentPage);
+                }
+            }
+
+
+            function validateCurrentPage() {
+                const currentInputs = document.querySelectorAll('.form-page.active input[required], .form-page.active textarea[required]');
+                let valid = true;
+
+                currentInputs.forEach(input => {
+
+                    if (input.value.trim() === '') {
+                        input.classList.add('input-error');
+                        valid = false;
+
+
+                        setTimeout(() => input.classList.remove('input-error'), 300);
+                    }
+                });
+
+                return valid;
+            }
+
+            document.getElementById("multiPageForm").addEventListener("submit", function(event) {
+                if (!validateCurrentPage()) {
+                    event.preventDefault();
+                    fails
+                    alert("Please fill in all required fields.");
+                } else {
+                    alert("Form submitted!");
+                }
+            });
+
+
+            showPage(currentPage);
+
+            window.addEventListener('error', function(event) {
+
+            if (event.target.tagName === 'A' && event.target.href) {
+
+            event.preventDefault();
+
+            window.location.href = '404.html';
+            }
+            }, true);
         </script>
+
 
     </div>
 </body>

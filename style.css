@@ -497,5 +497,11 @@ button[type="submit"] {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    input.error {
+      animation: none;
+    }
+}
+
 
 
