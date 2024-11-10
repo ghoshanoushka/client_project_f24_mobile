@@ -24,7 +24,6 @@ li {
     margin-bottom: 0.5em;
 }
 
-
 p {
     display: block;
     margin-top: 1em;
@@ -47,7 +46,7 @@ button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-header img{
+header img {
     width: 100%;
     height: auto;
 }
@@ -60,7 +59,7 @@ nav ul {
     padding: 0;
 }
 
-nav ul a{
+nav ul a {
     display: inline-grid;
     text-decoration: none;
     text-align: center;
@@ -71,8 +70,7 @@ nav ul a{
     color: #00274c;
 }
 
-
-nav ul a:hover, a:focus, a:active{
+nav ul a:hover, a:focus, a:active {
     background-color: #00274c;
     color: #e7e7e7;
 }
@@ -81,9 +79,9 @@ nav li {
     margin-bottom: 0;
 }
 
-.active, .nav-link:hover{
+.active, .nav-link:hover {
     background-color: #00274c;
-    color:  #e7e7e7;
+    color: #e7e7e7;
 }
 
 .heading-h1 {
@@ -123,7 +121,7 @@ h3 {
 }
 
 .main-division {
-    background-color:#ffffe4;
+    background-color: #ffffe4;
     width: 100%;
     padding: 10px;
 }
@@ -140,13 +138,13 @@ h3 {
     margin-bottom: 20px;
 }
 
-.tabular h3{
+.tabular h3 {
     margin-top: 0.5em;
     margin-bottom: 0;
     grid-row: 1/span 1;
 }
 
-.tabular p{
+.tabular p {
     margin-top: 0;
     margin-bottom: 0.5em;
     grid-row: 2/span 1;
@@ -171,9 +169,9 @@ h3 {
     margin: 0 auto;
 }
 
-.tabular button:hover, button:focus{
+.tabular button:hover, button:focus {
     background-color: #00274c;
-    color: #e7e7e7
+    color: #e7e7e7;
 }
 
 .video {
@@ -250,7 +248,7 @@ h3 {
     padding-bottom: 20px;
     text-align: center;
     font-weight: bold;
-    color: #FFCB05
+    color: #FFCB05;
 }
 
 .form-wrapper {
@@ -315,6 +313,50 @@ button[type="submit"] {
     background-color: #003366;
 }
 
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(-100%); opacity: 0; }
+}
+
+.input-error {
+    animation: shake 0.3s ease;
+    border-color: #FF0000;
+}
+
+.form-page {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.form-page.active {
+    opacity: 1;
+    animation: fadeIn 0.5s ease forwards;
+    transform: translateX(0);
+}
+
+.form-page.inactive {
+    animation: slideOut 0.5s ease forwards;
+}
+
+.modal.show {
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+
 @media (min-width: 768px) {
     .main-division {
         width: 80%;
@@ -348,7 +390,6 @@ button[type="submit"] {
         grid-template-columns: 49% 49%;
         grid-gap: 2%;
         margin-bottom: 2em;
-
     }
 
     .section-group img, .section-group button {
@@ -377,7 +418,7 @@ button[type="submit"] {
         padding-bottom: 20px;
         text-align: center;
         font-weight: bold;
-        color: #FFCB05
+        color: #FFCB05;
     }
 
     .form-wrapper {
@@ -459,7 +500,6 @@ button[type="submit"] {
     .button-icon {
         width: 100%;
         display: block;
-
     }
 
     .modal {
@@ -471,6 +511,12 @@ button[type="submit"] {
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
+        transition: opacity 0.3s ease;
+    }
+
+    .modal.show {
+        display: block;
+        animation: fadeIn 0.5s ease forwards;
     }
 
     .modal-content {
@@ -494,14 +540,81 @@ button[type="submit"] {
         font-weight: bold;
         color: #FFCB05;
         cursor: pointer;
+        z-index: 1;
+    }
+
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+    @keyframes shake {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(-5px);
+        }
+        50% {
+            transform: translateX(5px);
+        }
+        75% {
+            transform: translateX(-5px);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+    }
+
+    .input-error {
+        animation: shake 0.3s ease;
+        border-color: #FF0000;
+    }
+
+    .form-page {
+        opacity: 0;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .form-page.active {
+        opacity: 1;
+        animation: fadeIn 0.5s ease forwards;
+        transform: translateX(0);
+    }
+
+    .form-page.inactive {
+        animation: slideOut 0.5s ease forwards;
+    }
+
+    .modal.show {
+        display: block;
+        animation: fadeIn 0.5s ease forwards;
     }
 }
-
-@media (prefers-reduced-motion: reduce) {
-    input.error {
-      animation: none;
-    }
-}
-
-
-
