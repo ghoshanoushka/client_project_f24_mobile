@@ -356,6 +356,13 @@ button[type="submit"] {
     animation: fadeIn 0.5s ease forwards;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
 
 @media (min-width: 768px) {
     .main-division {
