@@ -9,60 +9,62 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <style>
+<style>
 
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-        }
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-        }
-
-
-        .input-error {
-            animation: shake 0.3s ease;
-            border-color: #FF0000;
-        }
-
-
-        .form-page {
+    @keyframes fadeIn {
+        from {
             opacity: 0;
-            transition: opacity 0.5s ease, transform 0.5s ease;
         }
-
-
-        .form-page.active {
+        to {
             opacity: 1;
-            animation: fadeIn 0.5s ease forwards;
+        }
+    }
+
+    @keyframes slideOut {
+        from {
             transform: translateX(0);
+            opacity: 1;
         }
+        to {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+    }
 
 
-        .form-page.inactive {
-            animation: slideOut 0.5s ease forwards;
-        }
-    </style>
+    .input-error {
+        animation: shake 0.3s ease;
+        border-color: #FF0000;
+    }
+
+
+    .form-page {
+        opacity: 0;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+
+    .form-page.active {
+        opacity: 1;
+        animation: fadeIn 0.5s ease forwards;
+        transform: translateX(0);
+    }
+
+
+    .form-page.inactive {
+        animation: slideOut 0.5s ease forwards;
+    }
+</style>
+
+<body>
+
     <div class="main-division">
         <header>
             <a href = "#main" class="skip-link">Skip to Main Content</a>
@@ -83,12 +85,11 @@
             <h1 class="heading-h1">We're Here to Help!</h1>
 
             <section class="form-section">
-                <form action="https://formspree.io/f/xpwzpdon" method="POST">
+                <form action="https://formspree.io/f/xpwzpdon" method="POST" id="multiPageForm">
                     <fieldset>
                         <legend>We're here to support you every step of the way, whether you need help with course planning, navigating program requirements, or exploring career paths. Your goals and success are important to us, and we're committed to helping you make the most of your time here. Don't hesitate to reach out - we're here to help you thrive at UMSI!</legend><p>
                         <p>Fill out the form below to let us know how we can support you.</p>
                         <div class="form-wrapper">
-                            <form id="multiPageForm">
                                 <!-- Page 1 -->
                                 <div class="form-page active" id="page1">
                                     <h2>Personal Information</h2>
@@ -126,7 +127,6 @@
                                     <button type="button" class="back-button" onclick="prevPage()">Back</button>
                                     <button type="submit" class="submit-button">Submit</button>
                                 </div>
-                            </form>
                         </div>
                         </p>
                     </fieldset>
