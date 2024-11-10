@@ -313,6 +313,7 @@ button[type="submit"] {
     background-color: #003366;
 }
 
+/* Animations from W3 Schools: https://www.w3schools.com/w3css/w3css_animate.asp */
 
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
@@ -550,6 +551,7 @@ button[type="submit"] {
         z-index: 1;
     }
 
+    /* Animations from W3 Schools: https://www.w3schools.com/w3css/w3css_animate.asp */
 
     @keyframes fadeIn {
         from {
